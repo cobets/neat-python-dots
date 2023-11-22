@@ -66,8 +66,8 @@ def main():
 
     # Add a stdout reporter to show progress in the terminal.
     p.add_reporter(neat.StdOutReporter(True))
-    stats = neat.StatisticsReporter()
-    p.add_reporter(stats)
+    p.add_reporter(neat.StatisticsReporter())
+    p.add_reporter(neat.Checkpointer(5))
 
     # Run for up to 300 generations.
     pe = DotsParallelEvaluator(multiprocessing.cpu_count() - 1, eval_genome)
